@@ -1,0 +1,1 @@
+#continue:where(.astro-I2YSE3ZK){transition:transform .5s cubic-bezier(0,0,.5,1);animation:blink 3s linear infinite;animation-delay:.5s}#continue:where(.astro-I2YSE3ZK):hover{transform:scale(1.2);cursor:pointer;animation:none}@keyframes blink{50%{opacity:0}}
