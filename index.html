@@ -10,27 +10,112 @@
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="/assets/404.2b87167b.css" />
-<link rel="stylesheet" href="/assets/index.d09e9051.css" /><script type="module">document.querySelector("#continue").onclick=()=>{document.querySelector("#about")?.scrollIntoView({behavior:"smooth"})};const e="\uFF66\uFF67\uFF68\uFF69\uFF6A\uFF6B\uFF6C\uFF6D\uFF6E\uFF6F\uFF70\uFF71\uFF72\uFF73\uFF74\uFF75\uFF76\uFF77\uFF78\uFF79\uFF7A\uFF7B\uFF7C\uFF7D\uFF7E\uFF7F\uFF80\uFF81\uFF82\uFF83\uFF84\uFF85\uFF86\uFF87\uFF88\uFF89\uFF8A\uFF8B\uFF8C\uFF8D\uFF8E\uFF8F\uFF90\uFF91\uFF92\uFF93\uFF94\uFF95\uFF96\uFF97\uFF98\uFF99\uFF9A\uFF9B\uFF9C\uFF9D1234567890",u=24,o=18,d=50,g=.2,F=document.querySelector("canvas"),n=F.getContext("2d");F.width=window.innerWidth;F.height=window.innerHeight;let r=.6/(1920/F.width);window.onresize=()=>{F.width=window.innerWidth,F.height=window.innerHeight,r=.5/(1920/F.width)};let c=0;class w{chars=[];length;speed;x;glitches=[];constructor(t){this.length=Math.floor(Math.random()*40)+4,this.speed=Math.floor(Math.random()*2)+1,this.x=t;for(let s=0;s<F.height/u;s++)Math.random()<g&&this.glitches.push(s)}update(){if(c%this.speed===0&&(this.chars.push(e[Math.floor(Math.random()*e.length)]),this.chars.length>=this.length&&(this.chars[this.chars.length-this.length]=" ")),this.chars.length-this.length>F.height/u)return!0;n.font=`${u}px PT Sans`;for(let t=0;t<this.chars.length;t++)this.glitches.includes(t)&&this.chars[t]!==" "&&(this.chars[t]=e[Math.floor(Math.random()*e.length)]),n.fillStyle=t===this.chars.length-1?"#6c7086":"#313244",n.fillText(this.chars[t],this.x,t*u)}}const i=[];let a=Date.now();const l=()=>{if(requestAnimationFrame(l),Date.now()>a+d){Math.random()<r&&i.push(new w(Math.floor(Math.random()*F.width/o)*o)),n.clearRect(0,0,F.width,F.height);for(let h=0;h<i.length;h++)i[h].update()&&(i.splice(h,1),h--);c++,a=Date.now()}};requestAnimationFrame(l);
+	<link rel="stylesheet" href="/assets/index.9f6a05c2.css" />
+<link rel="stylesheet" href="/assets/404.777ffd65.css" /><script type="module">document.querySelector("#continue").onclick=()=>{document.querySelector("#nav")?.scrollIntoView({behavior:"smooth"})};const i="\uFF66\uFF67\uFF68\uFF69\uFF6A\uFF6B\uFF6C\uFF6D\uFF6E\uFF6F\uFF70\uFF71\uFF72\uFF73\uFF74\uFF75\uFF76\uFF77\uFF78\uFF79\uFF7A\uFF7B\uFF7C\uFF7D\uFF7E\uFF7F\uFF80\uFF81\uFF82\uFF83\uFF84\uFF85\uFF86\uFF87\uFF88\uFF89\uFF8A\uFF8B\uFF8C\uFF8D\uFF8E\uFF8F\uFF90\uFF91\uFF92\uFF93\uFF94\uFF95\uFF96\uFF97\uFF98\uFF99\uFF9A\uFF9B\uFF9C\uFF9D1234567890",u=24,c=18,g=50,f=.2,w=.9,A=.5,F=document.querySelector("canvas"),o=F.getContext("2d");F.width=window.innerWidth;F.height=window.innerHeight;let l=F.width/1920;window.onresize=()=>{F.width=window.innerWidth,F.height=window.innerHeight,l=F.width/2500};let d=0,h={x:-1e3,y:-1e3,acc:0};class x{chars=[];length;speed;x;glitches=[];constructor(e){this.length=Math.floor(Math.random()*40)+4,this.speed=Math.floor(Math.random()*2)+1,this.x=e;for(let n=0;n<F.height/u;n++)Math.random()<f&&this.glitches.push(n)}update(){if(d%this.speed===0&&(this.chars.push(i[Math.floor(Math.random()*i.length)]),this.chars.length>=this.length&&(this.chars[this.chars.length-this.length]=" ")),this.chars.length-this.length>F.height/u)return!0;o.font=`${u}px PT Sans`;for(let e=0;e<this.chars.length;e++){this.glitches.includes(e)&&this.chars[e]!==" "&&(this.chars[e]=i[Math.floor(Math.random()*i.length)]);let n=this.x+c/2,a=e*u-u/2;o.fillStyle=(n-h.x)*(n-h.x)+(a-h.y)*(a-h.y)<h.acc*A?"#fab387":e===this.chars.length-1?"#6c7086":"#313244",o.fillText(this.chars[e],this.x,e*u)}}}const s=[];let r=Date.now();const m=()=>{if(requestAnimationFrame(m),Date.now()>r+g){h.acc*=w,Math.random()<l&&s.push(new x(Math.floor(Math.random()*F.width/c)*c)),o.clearRect(0,0,F.width,F.height);for(let t=0;t<s.length;t++)s[t].update()&&(s.splice(t,1),t--);d++,r=Date.now()}};requestAnimationFrame(m);document.onmousemove=t=>{h.x=t.clientX,h.y=t.clientY,h.acc+=t.movementX*t.movementX+t.movementY*t.movementY};
 </script>
 <script type="module" src="/page.5a6f3db5.js"></script></head>
-	
+	<body>
 		<main><style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><canvas class="-z-10 fixed"></canvas>
 
-<div class="h-screen flex flex-col justify-center astro-I2YSE3ZK">
-		<h1 class="text-center text-6xl select-none astro-I2YSE3ZK">Neal Wang</h1>
+<div class="h-screen flex flex-col justify-center astro-NPQLCZJF">
+		<h1 class="text-center text-6xl select-none astro-NPQLCZJF">Neal Wang</h1>
 		<astro-island uid="Z2dVU8X" component-url="/TypistLoop.a76e22b9.js" component-export="default" renderer-url="/client.792352d6.js" props="{&quot;texts&quot;:[1,&quot;[[0,\&quot;Student\&quot;],[0,\&quot;Mathlete\&quot;],[0,\&quot;Violinist\&quot;],[0,\&quot;Programmer\&quot;],[0,\&quot;Arch User\&quot;]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TypistLoop&quot;,&quot;value&quot;:true}" await-children=""><div class="h-24"></div></astro-island>
-		<div class="flex astro-I2YSE3ZK">
-			<button class="m-auto fill-surface0 astro-I2YSE3ZK">
-				<svg id="continue" width="30" height="20" class="astro-I2YSE3ZK">
-					<polygon points="0,0 30,0 15,20" class="astro-I2YSE3ZK"></polygon>
+		<div class="flex astro-NPQLCZJF">
+			<button class="m-auto fill-surface0 astro-NPQLCZJF">
+				<svg id="continue" width="30" height="20" class="astro-NPQLCZJF">
+					<polygon points="0,0 30,0 15,20" class="astro-NPQLCZJF"></polygon>
 				</svg>
 			</button>
 		</div>
-	</div><div class="h-screen astro-I2YSE3ZK" id="about">Hello</div></main>
-	
+	</div><div class="h-screen flex astro-NPQLCZJF" id="nav">
+		<div class="m-auto grid grid-cols-3 gap-32 astro-NPQLCZJF">
+			<a href="/about" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">About</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">About</h2>
+			</div>
+		</div>
+	</div>
+</a>
 
-</html>
+
+			<a href="/skills" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Skills</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Skills</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+			<a href="/work" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Work</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Work</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+			<a href="/" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Idk</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Idk</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+			<a href="/blog" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Blog</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Blog</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+			<a href="/blog" class="astro-TKCNUVFU">
+	<div class="w-64 h-48 astro-TKCNUVFU" id="flip">
+		<div class="w-full h-full text-center astro-TKCNUVFU" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="front">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Contact</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-TKCNUVFU" id="back">
+				<h2 class="m-auto text-2xl astro-TKCNUVFU">Contact</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+		</div>
+	</div></main>
+	</body></html>
 
 
 
