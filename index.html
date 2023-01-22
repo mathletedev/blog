@@ -11,98 +11,97 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="/assets/index.779ce883.css" />
-<link rel="stylesheet" href="/assets/contact.406cd478.css" />
-<link rel="stylesheet" href="/assets/404.1787497a.css" /><script type="module">const u="\uFF66\uFF67\uFF68\uFF69\uFF6A\uFF6B\uFF6C\uFF6D\uFF6E\uFF6F\uFF70\uFF71\uFF72\uFF73\uFF74\uFF75\uFF76\uFF77\uFF78\uFF79\uFF7A\uFF7B\uFF7C\uFF7D\uFF7E\uFF7F\uFF80\uFF81\uFF82\uFF83\uFF84\uFF85\uFF86\uFF87\uFF88\uFF89\uFF8A\uFF8B\uFF8C\uFF8D\uFF8E\uFF8F\uFF90\uFF91\uFF92\uFF93\uFF94\uFF95\uFF96\uFF97\uFF98\uFF99\uFF9A\uFF9B\uFF9C\uFF9D1234567890";const e=document.querySelector("canvas"),n=e.getContext("2d");e.width=window.innerWidth;e.height=window.innerHeight;let r=e.width/1920;window.onresize=()=>{e.width=window.innerWidth,e.height=window.innerHeight,r=e.width/2500};let c=0,h={x:-1e3,y:-1e3,acc:0};class H{chars=[];length;speed;x;glitches=[];error;constructor(F){this.length=Math.floor(Math.random()*40)+4,this.speed=Math.floor(Math.random()*2)+1,this.x=F;for(let i=0;i<e.height/24;i++)Math.random()<.2&&this.glitches.push(i);this.error=Math.random()<.05}update(){if(c%this.speed===0&&(this.chars.push(u[Math.floor(Math.random()*u.length)]),this.chars.length>=this.length&&(this.chars[this.chars.length-this.length]=" ")),this.chars.length-this.length>e.height/24)return!0;n.font=`${24}px Kosugi Maru`;for(let F=0;F<this.chars.length;F++){this.glitches.includes(F)&&this.chars[F]!==" "&&(this.chars[F]=u[Math.floor(Math.random()*u.length)]);let i=this.x+18/2,o=F*24-24/2;n.fillStyle=(i-h.x)*(i-h.x)+(o-h.y)*(o-h.y)<h.acc*.5?"#fab387":this.error?F===this.chars.length-1?"#f38ba8":"#eba0ac":F===this.chars.length-1?"#6c7086":"#313244",n.fillText(this.chars[F],this.x,F*24)}}}const s=[];let a=Date.now();const l=()=>{if(requestAnimationFrame(l),Date.now()>a+50){h.acc*=.9,Math.random()<r&&s.push(new H(Math.floor(Math.random()*e.width/18)*18)),n.clearRect(0,0,e.width,e.height);for(let t=0;t<s.length;t++)s[t].update()&&(s.splice(t,1),t--);c++,a=Date.now()}};requestAnimationFrame(l);document.onmousemove=t=>{h.x=t.clientX,h.y=t.clientY,h.acc+=t.movementX*t.movementX+t.movementY*t.movementY};
-</script>
+	<link rel="stylesheet" href="/assets/index.fe5e81c9.css" />
+<link rel="stylesheet" href="/assets/contact.2a64f654.css" />
+<link rel="stylesheet" href="/assets/404.6bb4cd08.css" /><script type="module" src="/hoisted.cd8ea564.js"></script>
 <script type="module" src="/page.5a6f3db5.js"></script></head>
 	<body>
 		<main><style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><canvas class="-z-10 fixed"></canvas>
 
-<div class="fixed w-screen h-screen astro-E7LELQER" id="vignette"></div>
+<div class="fixed w-screen h-screen pointer-events-none astro-L5CWX5GV" id="vignette"></div>
 
 <div class="h-screen flex flex-col justify-center">
 		<h1 class="text-center text-6xl shadow-text select-none neon">Neal Wang</h1>
-		<astro-island uid="Z2dVU8X" component-url="/TypistLoop.745d6dac.js" component-export="default" renderer-url="/client.792352d6.js" props="{&quot;texts&quot;:[1,&quot;[[0,\&quot;Student\&quot;],[0,\&quot;Mathlete\&quot;],[0,\&quot;Violinist\&quot;],[0,\&quot;Programmer\&quot;],[0,\&quot;Arch User\&quot;]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TypistLoop&quot;,&quot;value&quot;:true}" await-children=""><div class="h-24"></div></astro-island>
-	</div><div class="absolute left-16 bottom-0 h-screen flex flex-col justify-evenly">
-		<a href="/about" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#f38ba8">About</h2>
+		<astro-island uid="Z24WQCa" component-url="/TypistLoop.47666013.js" component-export="default" renderer-url="/client.792352d6.js" props="{&quot;texts&quot;:[1,&quot;[[0,\&quot;Student\&quot;],[0,\&quot;Mathlete\&quot;],[0,\&quot;Developer\&quot;],[0,\&quot;Scientist\&quot;],[0,\&quot;Teacher\&quot;],[0,\&quot;Violinist\&quot;],[0,\&quot;Tennis Player\&quot;],[0,\&quot;NixOS User\&quot;]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TypistLoop&quot;,&quot;value&quot;:true}" await-children=""><div class="h-24"></div></astro-island>
+	</div><div class="absolute left-16 bottom-0 h-screen flex flex-col justify-evenly" id="fade">
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/about">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#f38ba8">About</h2>
 			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#f38ba8">About</h2>
-			</div>
-		</div>
-	</div>
-</a>
-
-
-		<a href="/skills" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#fab387">Skills</h2>
-			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#fab387">Skills</h2>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#f38ba8">About</h2>
 			</div>
 		</div>
 	</div>
 </a>
 
 
-		<a href="/work" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#f9e2af">Work</h2>
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/skills">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#fab387">Skills</h2>
 			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#f9e2af">Work</h2>
-			</div>
-		</div>
-	</div>
-</a>
-
-
-		<a href="/projects" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#a6e3a1">Projects</h2>
-			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#a6e3a1">Projects</h2>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#fab387">Skills</h2>
 			</div>
 		</div>
 	</div>
 </a>
 
 
-		<a href="/blog" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#89b4fa">Blog</h2>
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/work">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#f9e2af">Work</h2>
 			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#89b4fa">Blog</h2>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#f9e2af">Work</h2>
 			</div>
 		</div>
 	</div>
 </a>
 
 
-		<a href="/contact" class="astro-IIITB7PD">
-	<div class="w-32 h-16 astro-IIITB7PD" id="flip">
-		<div class="w-full h-full text-center astro-IIITB7PD" id="inner">
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="front">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#b4befe">Contact</h2>
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/projects">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#a6e3a1">Projects</h2>
 			</div>
-			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-IIITB7PD" id="back">
-				<h2 class="m-auto text-2xl neon astro-IIITB7PD" style="color:#b4befe">Contact</h2>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#a6e3a1">Projects</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/blog">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#89b4fa">Blog</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#89b4fa">Blog</h2>
+			</div>
+		</div>
+	</div>
+</a>
+
+
+		<a class="opacity-0 transition-opacity duration-1000 astro-OVRJU3VK" href="/contact">
+	<div class="w-32 h-16 astro-OVRJU3VK" id="flip">
+		<div class="w-full h-full text-center astro-OVRJU3VK" id="inner">
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="front">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#b4befe">Contact</h2>
+			</div>
+			<div class="flex rounded-lg bg-surface0 bg-opacity-40 astro-OVRJU3VK" id="back">
+				<h2 class="m-auto text-2xl neon astro-OVRJU3VK" style="color:#b4befe">Contact</h2>
 			</div>
 		</div>
 	</div>
@@ -111,3 +110,4 @@
 
 	</div></main>
 	</body></html>
+

@@ -1,0 +1,1 @@
+const n=document.getElementById("fade");for(let e=0;e<n.children.length;e++){const t=n.children[e];t.style.pointerEvents="none",t.style.opacity="0",setTimeout(()=>{t.style.pointerEvents="unset",t.style.opacity="1"},e*200+500)}
