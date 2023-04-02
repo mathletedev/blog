@@ -13,16 +13,18 @@ const { title, prev, next } = Astro.props as Props;
 
 <>
 	<Vignette />
-	<div class="h-screen flex flex-col justify-evenly">
-		<h1
-			class="mx-auto w-min text-center text-6xl select-none animate-bounce neon"
-		>
-			<a href="/">
-				{title}
-			</a>
-		</h1>
+	<div class="h-screen flex">
+		<div class="my-auto w-screen flex flex-col">
+			<h1
+				class="mx-auto w-min text-center text-6xl select-none animate-bounce neon"
+			>
+				<a href="/">
+					{title}
+				</a>
+			</h1>
+			<slot />
+		</div>
 		{prev && <PageNav href={prev} back />}
 		{next && <PageNav href={next} />}
-		<slot />
 	</div>
 </>

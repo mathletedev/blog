@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+import Content from "../layouts/Content.astro";
+---
+
+<Base title="Work">
+	<Content title="Work" prev="/awards" next="/blog">
+		<div
+			class="mx-auto mt-8 w-1/2 text-xl text-justify font-['Patrick_Hand'] leading-10"
+		>
+			<p>
+				<span id="scroll"></span><span class="animate-blink">▌</span><span
+					id="tip"
+					class="italic text-surface2 animate-pulse"
+					>Scroll to learn more...</span
+				>
+			</p>
+		</div>
+	</Content>
+</Base>
+
+<script>
+	import { setup } from "../lib/scroll";
+
+	setup(`
+	In the summer of 2022, Neal interned for the Pullman School District IT department.
+	During the three months he worked there, he worked in a team to install and update software on teachers' computers.
+	There, he learned to dissect and replace parts of broken Chromebooks.
+	In addition, Neal actively runs a YouTube channel by the name of MathleteDev.
+	He uploads tutorial videos that teach others the joy of programming.
+	Over the course of a year, the channel has gained over 300 subscribers.
+	Although Neal's work experience is limited, he is open to fun job opportunities, so feel free to contact him!
+	`);
+</script>
