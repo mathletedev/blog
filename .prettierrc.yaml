@@ -1,5 +1,9 @@
 useTabs: true
 trailingComma: none
 arrowParens: avoid
-importOrderSeparation: false
-importOrderSortSpecifiers: true
+plugins:
+  - prettier-plugin-astro
+overrides:
+  - files: "*.astro"
+    options:
+      parser: astro

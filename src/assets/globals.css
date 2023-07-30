@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply h-screen;
+		height: 100dvh;
 		@apply bg-base;
 		@apply text-text;
 	}
@@ -15,6 +15,10 @@
 
 	::-webkit-scrollbar {
 		@apply hidden;
+	}
+
+	.h-dynamic {
+		height: 100dvh;
 	}
 
 	.neon {
@@ -32,6 +36,26 @@
 
 		50% {
 			opacity: 0;
+		}
+	}
+
+	.desktop {
+		visibility: hidden;
+	}
+
+	.mobile {
+		visibility: hidden;
+	}
+
+	@media screen and (min-width: 768px) {
+		.desktop {
+			visibility: visible;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.mobile {
+			visibility: visible;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ---
 import Matrix from "../components/Matrix.astro";
-import NavCard from "../components/NavCard.astro";
+import Sidebar from "../components/Sidebar.astro";
+import TabBar from "../components/TabBar.astro";
 import TypistLoop from "../components/TypistLoop";
 import Vignette from "../components/Vignette.astro";
 import Base from "../layouts/Base.astro";
@@ -8,9 +9,12 @@ import Base from "../layouts/Base.astro";
 
 <Base>
 	<Matrix />
+	<TabBar />
 	<Vignette />
-	<div class="h-screen flex flex-col justify-center">
-		<h1 class="text-center text-6xl shadow-text select-none neon">Neal Wang</h1>
+	<div class="flex flex-col justify-center h-dynamic">
+		<h1 class="text-center text-4xl md:text-6xl shadow-text select-none neon">
+			Neal Wang
+		</h1>
 		<TypistLoop
 			client:load
 			texts={[
@@ -25,17 +29,7 @@ import Base from "../layouts/Base.astro";
 			]}
 		/>
 	</div>
-	<div
-		class="absolute left-16 bottom-0 h-screen flex flex-col justify-evenly"
-		id="fade"
-	>
-		<NavCard title="About" href="/about" colour="#f38ba8" />
-		<NavCard title="Skills" href="/skills" colour="#fab387" />
-		<NavCard title="Awards" href="/awards" colour="#f9e2af" />
-		<NavCard title="Work" href="/work" colour="#a6e3a1" />
-		<NavCard title="Blog" href="/blog" colour="#89b4fa" />
-		<NavCard title="Contact" href="/contact" colour="#b4befe" />
-	</div>
+	<Sidebar />
 </Base>
 
 <script>

@@ -1,5 +1,6 @@
 ---
 import PageNav from "../components/PageNav.astro";
+import TabBar from "../components/TabBar.astro";
 import Vignette from "../components/Vignette.astro";
 
 export interface Props {
@@ -12,15 +13,14 @@ const { title, prev, next } = Astro.props as Props;
 ---
 
 <>
+	<TabBar show />
 	<Vignette />
-	<div class="h-screen flex">
+	<div class="flex h-dynamic">
 		<div class="my-auto w-screen flex flex-col">
 			<h1
-				class="mx-auto w-min text-center text-6xl select-none animate-bounce neon"
+				class="mx-auto -mt-12 md:mt-0 w-min text-center text-4xl md:text-6xl select-none animate-bounce neon"
 			>
-				<a href="/">
-					{title}
-				</a>
+				{title}
 			</h1>
 			<slot />
 		</div>

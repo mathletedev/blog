@@ -9,12 +9,8 @@ export interface Props {
 const { icon, title, href, colour } = Astro.props as Props;
 ---
 
-<a
-	class="opacity-0 transition-opacity duration-1000"
-	href={href}
-	target="_blank"
->
-	<div class="w-32 h-32" id="flip">
+<a class="opacity-0 transition-opacity duration-1000" {href} target="_blank">
+	<div class="w-20 md:w-32 h-20 md:h-32" id="flip">
 		<div class="w-full h-full text-center" id="inner">
 			<div class="flex rounded-lg bg-surface0 bg-opacity-40" id="front">
 				<img

@@ -1,0 +1,23 @@
+---
+import NavLink from "./NavLink.astro";
+
+export interface Props {
+	show?: boolean;
+}
+
+const { show } = Astro.props as Props;
+---
+
+<div
+	class={`fixed bottom-0 w-screen flex pb-1 md:h-8 flex-wrap justify-center content-center gap-x-4 md:gap-x-8 gap-y-1 bg-surface0 ${
+		!show && "mobile"
+	}`}
+>
+	<NavLink href="/" title="~" colour="#cdd6f4" />
+	<NavLink href="/about" colour="#f38ba8" />
+	<NavLink href="/skills" colour="#fab387" />
+	<NavLink href="/awards" colour="#f9e2af" />
+	<NavLink href="/work" colour="#a6e3a1" />
+	<NavLink href="/blog" colour="#89b4fa" />
+	<NavLink href="/contact" colour="#b4befe" />
+</div>

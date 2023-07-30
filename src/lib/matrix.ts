@@ -1,7 +1,7 @@
 const CHARSET =
 	"ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890";
-const CHAR_HEIGHT = 24;
-const CHAR_WIDTH = 18;
+const CHAR_HEIGHT = window.innerWidth < 768 ? 16 : 24;
+const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
 const GLITCH_RATE = 0.2;
 const ERROR_RATE = 0.05;

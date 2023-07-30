@@ -18,3 +18,13 @@ document.onwheel = e => {
 
 	tip.hidden = index > 0;
 };
+
+document.onclick = () => {
+	let random = Math.floor(Math.random() * 15) + 17;
+
+	if (index < TEXT.length) index += random;
+
+	content.innerHTML = TEXT.substring(0, index);
+
+	tip.hidden = index > 0;
+};
