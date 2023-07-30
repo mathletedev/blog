@@ -1,21 +1,12 @@
 ---
+import Scroll from "../components/Scroll.astro";
 import Base from "../layouts/Base.astro";
 import Content from "../layouts/Content.astro";
 ---
 
 <Base title="Work">
 	<Content title="Work" prev="/awards" next="/blog">
-		<div
-			class="mx-auto mt-4 md:mt-8 w-5/6 md:w-1/2 md:text-xl text-justify font-['Patrick_Hand'] leading-snug md:leading-10 select-none"
-		>
-			<p>
-				<span id="scroll"></span><span class="animate-blink">▌</span><span
-					id="tip"
-					class="italic text-surface2 animate-pulse"
-					>Scroll to learn more...</span
-				>
-			</p>
-		</div>
+		<Scroll />
 	</Content>
 </Base>
 
