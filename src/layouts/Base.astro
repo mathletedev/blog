@@ -17,7 +17,7 @@ const { title, description } = Astro.props as Props;
 	<head>
 		<Head
 			title={title ? `${title} • ${SITE_TITLE}` : undefined}
-			description={description}
+			{description}
 		/>
 	</head>
 	<body>

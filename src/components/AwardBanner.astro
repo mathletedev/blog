@@ -8,17 +8,13 @@ export interface Props {
 const { title, href, year } = Astro.props as Props;
 ---
 
-<a
-	class="opacity-0 transition-opacity duration-1000"
-	href={href}
-	target="_blank"
->
-	<div class="flex text-xl font-serif">
+<a class="opacity-0 transition-opacity duration-1000" {href} target="_blank">
+	<div class="flex text-sm md:text-xl font-serif">
 		<p class="italic text-yellow hover:text-peach transition-colors">
 			{title}
 		</p>
 		<div class="flex-grow"></div>
 		<p class="text-surface2">{year}</p>
 	</div>
-	<div class="w-full h-0.5 mb-4 bg-surface0"></div>
+	<div class="w-full h-0.5 mb-2 md:mb-4 bg-surface0"></div>
 </a>

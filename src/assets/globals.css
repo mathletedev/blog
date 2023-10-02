@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply h-screen;
+		height: 100dvh;
 		@apply bg-base;
 		@apply text-text;
 	}
@@ -17,7 +17,45 @@
 		@apply hidden;
 	}
 
+	.h-dynamic {
+		height: 100dvh;
+	}
+
 	.neon {
 		text-shadow: 0 0 4px currentColor;
+	}
+
+	.animate-blink {
+		animation: blink 2s linear infinite;
+	}
+
+	@keyframes blink {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0;
+		}
+	}
+
+	.desktop {
+		visibility: hidden;
+	}
+
+	.mobile {
+		visibility: hidden;
+	}
+
+	@media screen and (min-width: 768px) {
+		.desktop {
+			visibility: visible;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.mobile {
+			visibility: visible;
+		}
 	}
 }

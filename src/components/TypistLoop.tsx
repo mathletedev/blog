@@ -17,7 +17,7 @@ const TypistLoop: FC<Props> = ({ texts }) => (
 			{shuffle(texts).map(text => (
 				<div key={text}>
 					<Typist.Delay ms={1000} />
-					<div className="text-center text-4xl text-sapphire select-none neon">
+					<div className="text-center text-2xl md:text-4xl text-sapphire select-none neon">
 						{text}
 					</div>
 					<Typist.Delay ms={1500} />

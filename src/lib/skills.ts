@@ -4,6 +4,8 @@ const skills = document.getElementById("skills") as HTMLCanvasElement;
 const nav = document.getElementById("fade")!
 	.children as HTMLCollectionOf<HTMLElement>;
 
+skills.width = skills.height = Math.min(500, window.innerWidth - 32);
+
 const CHARTS: Record<string, number>[] = [
 	{
 		TypeScript: 10,
