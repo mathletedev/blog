@@ -8,7 +8,10 @@ const ERROR_RATE = 0.05;
 const FADE = 0.9;
 const GOLD = 0.5;
 
-const canvas = document.querySelector("canvas")!;
+let _canvas: HTMLCanvasElement | null = null;
+while (!_canvas) _canvas = document.querySelector("canvas");
+
+const canvas: HTMLCanvasElement = _canvas;
 const ctx = canvas.getContext("2d")!;
 
 canvas.width = window.innerWidth;
