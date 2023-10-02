@@ -3,10 +3,3 @@ trailingComma: none
 arrowParens: avoid
 plugins:
   - prettier-plugin-astro
-<<<<<<< HEAD
-=======
-overrides:
-  - files: "*.astro"
-    options:
-      parser: astro
->>>>>>> refs/remotes/origin/main
