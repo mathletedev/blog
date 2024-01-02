@@ -6,7 +6,10 @@ import Content from "../layouts/Content.astro";
 
 <Base title="Awards">
 	<Content title="Awards" prev="/skills" next="/work">
-		<div class="w-5/6 md:w-2/3 mx-auto mt-4 md:mt-16 flex-col gap-32" id="fade">
+		<div
+			class="w-5/6 max-h-[60vh] md:w-2/3 mx-auto mt-4 md:mt-16 flex-col gap-32 overflow-y-scroll scroll-smooth"
+			id="fade"
+		>
 			<AwardBanner
 				title="USACO Silver Division"
 				href="http://usaco.org"
@@ -16,6 +19,16 @@ import Content from "../layouts/Content.astro";
 				title="Pullman High School Varsity Tennis"
 				href="http://phs.pullmanschools.org"
 				year="Current"
+			/>
+			<AwardBanner
+				title="AIME Qualifier"
+				href="https://maa.org/math-competitions/american-invitational-mathematics-examination-aime"
+				year="2024"
+			/>
+			<AwardBanner
+				title="Math is Cool Washington Calculus Masters"
+				href="http://academicsarecool.com"
+				year="2024"
 			/>
 			<AwardBanner
 				title="Washington DECA State Career Development Conference Qualifier"
@@ -30,11 +43,6 @@ import Content from "../layouts/Content.astro";
 			<AwardBanner
 				title="Congressional App Challenge WA05 Winner"
 				href="https://www.congressionalappchallenge.us/2022-winners/#Washington"
-				year="2023"
-			/>
-			<AwardBanner
-				title="Math is Cool Washington Precalculus Masters 5th Place Individual"
-				href="http://academicsarecool.com"
 				year="2023"
 			/>
 			<AwardBanner

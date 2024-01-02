@@ -17,13 +17,12 @@
     "react-typist-component": "^1.0.5"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.16.1",
     "@astrojs/react": "^2.1.0",
     "@astrojs/sitemap": "^1.2.1",
     "@catppuccin/tailwindcss": "^0.1.1",
     "@types/react": "^18.0.28",
     "@typescript-eslint/parser": "^5.56.0",
-    "astro": "^2.1.5",
+    "astro": "latest",
     "eslint": "^8.36.0",
     "eslint-plugin-astro": "^0.26.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",

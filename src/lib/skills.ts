@@ -10,25 +10,25 @@ const CHARTS: Record<string, number>[] = [
 	{
 		TypeScript: 10,
 		Rust: 9,
-		"C++": 8,
+		"C/C++": 8,
 		Python: 7,
 		Java: 8,
 		Go: 5
 	},
 	{
-		Linux: 10,
+		"GNU/Linux": 10,
 		Windows: 8,
 		Nix: 9,
-		Bash: 7,
-		Neovim: 10,
+		Bash: 8,
+		Vim: 10,
 		Git: 8
 	},
 	{
 		Astro: 10,
-		"Next.js": 9,
-		Svelte: 6,
+		Svelte: 9,
 		Tailwind: 10,
-		GraphQL: 8
+		tRPC: 8,
+		PostgreSQL: 9
 	}
 ];
 

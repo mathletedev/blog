@@ -1,4 +1,3 @@
-import image from "@astrojs/image";
 import prefetch from "@astrojs/prefetch";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -16,7 +15,6 @@ export default defineConfig({
 			}
 		}),
 		prefetch(),
-		image(),
 		sitemap()
 	]
 });

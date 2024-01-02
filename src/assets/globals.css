@@ -13,10 +13,6 @@
 		@apply text-blue;
 	}
 
-	::-webkit-scrollbar {
-		@apply hidden;
-	}
-
 	.h-dynamic {
 		height: 100dvh;
 	}
@@ -37,6 +33,63 @@
 		50% {
 			opacity: 0;
 		}
+	}
+
+	.glitch:hover,
+	.glitch:active,
+	.glitch:focus {
+		&::before,
+		&::after {
+			content: attr(data-before);
+			position: absolute;
+			transform: translate(-50%, -50%);
+			z-index: -1;
+			text-shadow: none;
+		}
+
+		&::before {
+			top: 49.5%;
+			left: 49.5%;
+			color: #f38ba8;
+			opacity: 80%;
+			animation: glitch1 200ms 400ms linear forwards;
+		}
+
+		&::after {
+			top: 50.5%;
+			left: 50.5%;
+			color: #74c7ec;
+			opacity: 80%;
+			animation: glitch2 200ms 400ms linear forwards;
+		}
+	}
+
+	/* prettier-ignore */
+	@keyframes glitch1 {
+		0%    { top: 49.5%; left: 49.5%; }
+		12.5% { top: 49.5%; left: 50%; }
+		25%   { top: 49.5%; left: 50.5%; }
+		37.5% { top: 50%; left: 50.5%; }
+		50%   { top: 50.5%; left: 50.5%; }
+		62.5% { top: 50.5%; left: 50%; }
+		75%   { top: 50.5%; left: 49.5%; }
+		87.5% { top: 50%; left: 49.5%; }
+		99%   { opacity: 1; }
+		100%  { opacity: 0; display: none; }
+	}
+
+	/* prettier-ignore */
+	@keyframes glitch2 {
+		0%    { top: 50.5%; left: 50.5%; }
+		12.5% { top: 50%; left: 50.5%; }
+		25%   { top: 49.5%; left: 50.5%; }
+		37.5% { top: 49.5%; left: 50%; }
+		50%   { top: 49.5%; left: 49.5%; }
+		62.5% { top: 50%; left: 49.5%; }
+		75%   { top: 50.5%; left: 49.5%; }
+		87.5% { top: 50.5%; left: 50%; }
+		99%   { opacity: 1; }
+		100%  { opacity: 0; display: none; }
 	}
 
 	.desktop {

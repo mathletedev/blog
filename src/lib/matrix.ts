@@ -87,6 +87,7 @@ class Stream {
 					  : i === this.chars.length - 1
 					    ? "#6c7086"
 					    : "#313244";
+			ctx.globalAlpha = 0.4;
 			ctx.fillText(this.chars[i], this.x, i * CHAR_HEIGHT);
 		}
 	}
@@ -127,5 +128,3 @@ const tick = () => {
 setTimeout(() => {
 	requestAnimationFrame(tick);
 }, 1500);
-
-console.log("test");

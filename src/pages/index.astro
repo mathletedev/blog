@@ -12,9 +12,14 @@ import Base from "../layouts/Base.astro";
 	<TabBar />
 	<Vignette />
 	<div class="flex flex-col justify-center h-dynamic">
-		<h1 class="text-center text-4xl md:text-6xl shadow-text select-none neon">
-			Neal Wang
-		</h1>
+		<div class="relative flex">
+			<h1
+				class="mx-auto text-4xl md:text-6xl select-none neon glitch"
+				data-before="Neal Wang"
+			>
+				Neal Wang
+			</h1>
+		</div>
 		<TypistLoop
 			client:load
 			texts={[
