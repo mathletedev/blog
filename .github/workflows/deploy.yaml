@@ -17,9 +17,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
-        with:
-          package-manager: yarn
+        uses: withastro/action@v1
 
   deploy:
     needs: build
