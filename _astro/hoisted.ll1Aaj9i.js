@@ -1,4 +1,4 @@
-import{s as e}from"./scroll.289330d2.js";e(`
+import{s as e}from"./scroll.cazEhjJ9.js";e(`
 	In the summers of 2022 and 2023, Neal interned for the Pullman School District IT department.
 	During the months he worked there, he collaborated with peers to install and update software on teachers' computers.
 	There, he learned to dissect broken Chromebooks, install whiteboard projectors, and test school networks.

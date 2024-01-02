@@ -1,4 +1,4 @@
-import{s as e}from"./scroll.289330d2.js";e(`
+import{s as e}from"./scroll.cazEhjJ9.js";e(`
 	Neal Wang is a high schooler with over 6 years of coding experience.
 	He made this portfolio site using Astro, TypeScript, and TailwindCSS.
 	As someone who learns a lot, he loves to teach and inspire others.
