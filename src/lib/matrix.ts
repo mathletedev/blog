@@ -81,12 +81,12 @@ class Stream {
 				mouse.acc * GOLD
 					? "#fab387"
 					: this.error
-					? i === this.chars.length - 1
-						? "#f38ba8"
-						: "#eba0ac"
-					: i === this.chars.length - 1
-					? "#6c7086"
-					: "#313244";
+					  ? i === this.chars.length - 1
+							? "#f38ba8"
+							: "#eba0ac"
+					  : i === this.chars.length - 1
+					    ? "#6c7086"
+					    : "#313244";
 			ctx.fillText(this.chars[i], this.x, i * CHAR_HEIGHT);
 		}
 	}
@@ -127,3 +127,5 @@ const tick = () => {
 setTimeout(() => {
 	requestAnimationFrame(tick);
 }, 1500);
+
+console.log("test");
