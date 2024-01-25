@@ -4,8 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: "PT Sans",
-				serif: "EB Garamond"
+				sans: "Victor Mono"
 			}
 		}
 	},
