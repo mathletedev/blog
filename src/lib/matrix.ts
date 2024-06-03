@@ -1,5 +1,5 @@
 const CHARSET =
-	"ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890";
+    "ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890";
 const CHAR_HEIGHT = window.innerWidth < 768 ? 16 : 24;
 const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
@@ -17,10 +17,10 @@ canvas.height = window.innerHeight;
 let SPAWN_RATE = canvas.width / 1920;
 
 window.onresize = () => {
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-	SPAWN_RATE = canvas.width / 2500;
+    SPAWN_RATE = canvas.width / 2500;
 };
 
 let frame = 0;
@@ -28,69 +28,72 @@ let frame = 0;
 let mouse = { x: -1000, y: -1000, acc: 0 };
 
 document.onmousemove = e => {
-	mouse.x = e.clientX;
-	mouse.y = e.clientY;
-	mouse.acc += e.movementX * e.movementX + e.movementY * e.movementY;
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.acc += e.movementX * e.movementX + e.movementY * e.movementY;
 };
 
 class Stream {
-	private chars: string[] = [];
-	private length: number;
-	private speed: number;
-	private x: number;
-	private glitches: number[] = [];
-	private error: boolean;
+    private chars: string[] = [];
+    private length: number;
+    private speed: number;
+    private x: number;
+    private glitches: number[] = [];
+    private error: boolean;
 
-	public constructor(x: number) {
-		this.length = Math.floor(Math.random() * 40) + 4;
-		this.speed = Math.floor(Math.random() * 2) + 1;
-		this.x = x;
+    public constructor(x: number) {
+        this.length = Math.floor(Math.random() * 40) + 4;
+        this.speed = Math.floor(Math.random() * 2) + 1;
+        this.x = x;
 
-		for (let i = 0; i < canvas.height / CHAR_HEIGHT; i++)
-			if (Math.random() < GLITCH_RATE) this.glitches.push(i);
+        for (let i = 0; i < canvas.height / CHAR_HEIGHT; i++)
+            if (Math.random() < GLITCH_RATE) this.glitches.push(i);
 
-		this.error = Math.random() < ERROR_RATE;
-	}
+        this.error = Math.random() < ERROR_RATE;
+    }
 
-	public update() {
-		if (frame % this.speed === 0) {
-			this.chars.push(CHARSET[Math.floor(Math.random() * CHARSET.length)]);
-			if (this.chars.length >= this.length)
-				this.chars[this.chars.length - this.length] = " ";
-		}
+    public update() {
+        if (frame % this.speed === 0) {
+            this.chars.push(
+                CHARSET[Math.floor(Math.random() * CHARSET.length)]
+            );
+            if (this.chars.length >= this.length)
+                this.chars[this.chars.length - this.length] = " ";
+        }
 
-		if (this.chars.length - this.length > canvas.height / CHAR_HEIGHT)
-			return true;
+        if (this.chars.length - this.length > canvas.height / CHAR_HEIGHT)
+            return true;
 
-		ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
+        ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
 
-		for (let i = 0; i < this.chars.length; i++) {
-			if (this.glitches.includes(i) && this.chars[i] !== " ")
-				this.chars[i] = CHARSET[Math.floor(Math.random() * CHARSET.length)];
+        for (let i = 0; i < this.chars.length; i++) {
+            if (this.glitches.includes(i) && this.chars[i] !== " ")
+                this.chars[i] =
+                    CHARSET[Math.floor(Math.random() * CHARSET.length)];
 
-			let x = this.x + CHAR_WIDTH / 2;
-			let y = i * CHAR_HEIGHT - CHAR_HEIGHT / 2;
+            let x = this.x + CHAR_WIDTH / 2;
+            let y = i * CHAR_HEIGHT - CHAR_HEIGHT / 2;
 
-			if (this.chars[i] !== " ") {
-				ctx.fillStyle = "#1e1e2e";
-				ctx.fillRect(this.x, i * CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT);
-			}
+            if (this.chars[i] !== " ") {
+                ctx.fillStyle = "#1e1e2e";
+                ctx.fillRect(this.x, i * CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT);
+            }
 
-			ctx.fillStyle =
-				(x - mouse.x) * (x - mouse.x) + (y - mouse.y) * (y - mouse.y) <
-				mouse.acc * GOLD
-					? "#fab387"
-					: this.error
-					  ? i === this.chars.length - 1
-							? "#f38ba8"
-							: "#eba0ac"
-					  : i === this.chars.length - 1
-					    ? "#6c7086"
-					    : "#313244";
-			ctx.globalAlpha = 0.4;
-			ctx.fillText(this.chars[i], this.x, i * CHAR_HEIGHT);
-		}
-	}
+            ctx.fillStyle =
+                (x - mouse.x) * (x - mouse.x) + (y - mouse.y) * (y - mouse.y) <
+                mouse.acc * GOLD
+                    ? "#fab387"
+                    : this.error
+                      ? i === this.chars.length - 1
+                          ? "#f38ba8"
+                          : "#eba0ac"
+                      : i === this.chars.length - 1
+                        ? "#6c7086"
+                        : "#313244";
+            ctx.globalAlpha = 0.4;
+            ctx.fillText(this.chars[i], this.x, i * CHAR_HEIGHT);
+        }
+    }
 }
 
 const streams: Stream[] = [];
@@ -98,33 +101,34 @@ const streams: Stream[] = [];
 let lastTick = Date.now();
 
 const tick = () => {
-	requestAnimationFrame(tick);
+    requestAnimationFrame(tick);
 
-	if (Date.now() > lastTick + DELAY) {
-		mouse.acc *= FADE;
+    if (Date.now() > lastTick + DELAY) {
+        mouse.acc *= FADE;
 
-		if (Math.random() < SPAWN_RATE)
-			streams.push(
-				new Stream(
-					Math.floor((Math.random() * canvas.width) / CHAR_WIDTH) * CHAR_WIDTH
-				)
-			);
+        if (Math.random() < SPAWN_RATE)
+            streams.push(
+                new Stream(
+                    Math.floor((Math.random() * canvas.width) / CHAR_WIDTH) *
+                        CHAR_WIDTH
+                )
+            );
 
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-		for (let i = 0; i < streams.length; i++) {
-			if (streams[i].update()) {
-				streams.splice(i, 1);
-				i--;
-			}
-		}
+        for (let i = 0; i < streams.length; i++) {
+            if (streams[i].update()) {
+                streams.splice(i, 1);
+                i--;
+            }
+        }
 
-		frame++;
+        frame++;
 
-		lastTick = Date.now();
-	}
+        lastTick = Date.now();
+    }
 };
 
 setTimeout(() => {
-	requestAnimationFrame(tick);
+    requestAnimationFrame(tick);
 }, 1500);

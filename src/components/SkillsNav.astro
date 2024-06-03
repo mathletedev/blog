@@ -1,15 +1,15 @@
 ---
 export interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props as Props;
 ---
 
 <div class="opacity-0 transition-opacity duration-1000">
-	<button
-		class="px-3 md:px-4 py-1 md:py-3 rounded-lg bg-surface0 hover:bg-surface1 transition-colors"
-	>
-		{title}
-	</button>
+    <button
+        class="px-3 md:px-4 py-1 md:py-3 rounded-lg bg-surface0 hover:bg-surface1 transition-colors"
+    >
+        {title}
+    </button>
 </div>

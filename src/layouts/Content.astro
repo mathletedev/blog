@@ -4,27 +4,27 @@ import TabBar from "../components/TabBar.astro";
 import Vignette from "../components/Vignette.astro";
 
 export interface Props {
-	title: string;
-	prev?: string;
-	next?: string;
+    title: string;
+    prev?: string;
+    next?: string;
 }
 
 const { title, prev, next } = Astro.props as Props;
 ---
 
 <>
-	<TabBar show />
-	<Vignette />
-	<div class="flex h-dynamic">
-		<div class="my-auto w-screen flex flex-col">
-			<h1
-				class="mx-auto -mt-12 md:mt-0 w-min text-center text-4xl md:text-6xl italic select-none animate-bounce neon"
-			>
-				{title}
-			</h1>
-			<slot />
-		</div>
-		{prev && <PageNav href={prev} back />}
-		{next && <PageNav href={next} />}
-	</div>
+    <TabBar show />
+    <Vignette />
+    <div class="flex h-dynamic">
+        <div class="my-auto w-screen flex flex-col">
+            <h1
+                class="mx-auto -mt-12 md:mt-0 w-min text-center text-4xl md:text-6xl italic select-none animate-bounce neon"
+            >
+                {title}
+            </h1>
+            <slot />
+        </div>
+        {prev && <PageNav href={prev} back />}
+        {next && <PageNav href={next} />}
+    </div>
 </>

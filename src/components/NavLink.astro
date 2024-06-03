@@ -1,18 +1,19 @@
 ---
 export interface Props {
-	href: string;
-	title?: string;
-	colour: string;
+    href: string;
+    title?: string;
+    colour: string;
 }
 
 const { href, title, colour } = Astro.props as Props;
 
 const select =
-	Astro.url.pathname.replace(/\/+$/, "") === href ? "text-sapphire neon" : "";
+    Astro.url.pathname.replace(/\/+$/, "") === href ? "text-sapphire neon" : "";
 ---
 
 <a class="md:text-lg font-bold text-surface1" {href}>
-	<span class={select}>{"> "}</span><span class="neon" style={{ color: colour }}
-		>{title ?? href}</span
-	><span class={select}>{" <"}</span>
+    <span class={select}>{"> "}</span><span
+        class="neon"
+        style={{ color: colour }}>{title ?? href}</span
+    ><span class={select}>{" <"}</span>
 </a>

@@ -1,5 +1,5 @@
-useTabs: true
+tabWidth: 4
 trailingComma: none
 arrowParens: avoid
 plugins:
-  - prettier-plugin-astro
+    - prettier-plugin-astro

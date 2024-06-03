@@ -1,16 +1,17 @@
 ---
 export interface Props {
-	href: string;
-	back?: boolean;
+    href: string;
+    back?: boolean;
 }
 
 const { href, back } = Astro.props as Props;
 ---
 
 <div class={`fixed ${back ? "left-24" : "right-24"} h-screen flex desktop`}>
-	<a class="my-auto" {href}>
-		<svg class="fill-lavender animate-pulse" width={25} height={50}>
-			<polygon points={back ? "25,0 25,50 0,25" : "0,0 0,50 25,25"}></polygon>
-		</svg>
-	</a>
+    <a class="my-auto" {href}>
+        <svg class="fill-lavender animate-pulse" width={25} height={50}>
+            <polygon points={back ? "25,0 25,50 0,25" : "0,0 0,50 25,25"}
+            ></polygon>
+        </svg>
+    </a>
 </div>

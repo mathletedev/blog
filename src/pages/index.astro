@@ -8,35 +8,35 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-	<Matrix />
-	<TabBar />
-	<Vignette />
-	<div class="flex flex-col justify-center h-dynamic">
-		<div class="relative mb-4 flex">
-			<h1
-				class="mx-auto text-4xl md:text-6xl select-none neon glitch"
-				data-before="Neal Wang"
-			>
-				Neal Wang
-			</h1>
-		</div>
-		<TypistLoop
-			client:load
-			texts={[
-				"Student",
-				"Mathlete",
-				"Developer",
-				"Scientist",
-				"Teacher",
-				"Violinist",
-				"Tennis Player",
-				"NixOS User"
-			]}
-		/>
-	</div>
-	<Sidebar />
+    <Matrix />
+    <TabBar />
+    <Vignette />
+    <div class="flex flex-col justify-center h-dynamic">
+        <div class="relative mb-4 flex">
+            <h1
+                class="mx-auto text-4xl md:text-6xl select-none neon glitch"
+                data-before="Neal Wang"
+            >
+                Neal Wang
+            </h1>
+        </div>
+        <TypistLoop
+            client:load
+            texts={[
+                "Student",
+                "Mathlete",
+                "Developer",
+                "Scientist",
+                "Teacher",
+                "Violinist",
+                "Tennis Player",
+                "NixOS User"
+            ]}
+        />
+    </div>
+    <Sidebar />
 </Base>
 
 <script>
-	import "../lib/fade";
+    import "../lib/fade";
 </script>

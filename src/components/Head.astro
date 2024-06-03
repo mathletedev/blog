@@ -2,12 +2,12 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config";
 
 export interface Props {
-	title?: string;
-	description?: string;
+    title?: string;
+    description?: string;
 }
 
 const { title = SITE_TITLE, description = SITE_DESCRIPTION } =
-	Astro.props as Props;
+    Astro.props as Props;
 ---
 
 <meta charset="utf-8" />
@@ -17,18 +17,18 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } =
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <link
-	href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital@0;1&display=swap"
-	rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital@0;1&display=swap"
+    rel="stylesheet"
 />
 <link
-	href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
-	rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
+    rel="stylesheet"
 />
 <link
-	href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap"
-	rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap"
+    rel="stylesheet"
 />
 <link
-	href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
-	rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+    rel="stylesheet"
 />
