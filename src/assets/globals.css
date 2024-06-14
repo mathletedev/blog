@@ -92,6 +92,29 @@
 		100%  { opacity: 0; display: none; }
 	}
 
+    .rainbow-text {
+        animation: rainbow 4s infinite;
+    }
+
+    /* prettier-ignore */
+    @keyframes rainbow {
+        0%   { color: #f5e0dc; }
+        7%   { color: #f2cdcd; }
+        14%  { color: #f5c2e7; }
+        21%  { color: #cba6f7; }
+        29%  { color: #f38ba8; }
+        36%  { color: #eba0ac; }
+        43%  { color: #fab387; }
+        50%  { color: #f9e2af; }
+        57%  { color: #a6e3a1; }
+        64%  { color: #94e2d5; }
+        71%  { color: #89dceb; }
+        79%  { color: #74c7ec; }
+        86%  { color: #89b4fa; }
+        93%  { color: #b4befe; }
+        100% { color: #f5e0dc; }
+    }
+
     .desktop {
         visibility: hidden;
     }
