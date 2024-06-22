@@ -7,11 +7,20 @@ const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
 const GLITCH_RATE = 0.2;
 const ERROR_RATE = 0.05;
+const MESSAGE_RATE = 0.02;
 const FADE = 0.9;
 const GOLD = 0.5;
 const OPACITY = 0.4;
 const ERROR_OPACITY = 0.8;
 const GOLD_OPACITY = 1;
+const MESSAGES = [
+    "HELLO,WORLD!",
+    "NEALWANG",
+    "THEMATRIX",
+    "3.1415926535",
+    "6.2831853071",
+    "2.7182818284"
+];
 
 const canvas = document.querySelector("canvas")!;
 const ctx = canvas.getContext("2d")!;
@@ -44,22 +53,33 @@ class Stream {
     private speed: number;
     private x: number;
     private error: boolean;
+    private message: string | undefined;
 
-    public constructor(x: number) {
+    public constructor(x: number, message?: string) {
         this.length = Math.floor(Math.random() * 40) + 4;
         this.speed = Math.floor(Math.random() * 2) + 1;
         this.x = x;
 
         this.error = Math.random() < ERROR_RATE;
 
+        this.message = message;
+
         ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
     }
 
     public update() {
         if (frame % this.speed === 0) {
-            this.chars.push(
-                CHARSET[Math.floor(Math.random() * CHARSET.length)]
-            );
+            if (!this.message) {
+                this.chars.push(
+                    CHARSET[Math.floor(Math.random() * CHARSET.length)]
+                );
+            } else {
+                // custom message
+                this.chars.push(
+                    this.message[(frame / this.speed) % this.message.length]
+                );
+            }
+
             if (this.chars.length >= this.length) {
                 this.chars[this.chars.length - this.length] = " ";
             }
@@ -70,7 +90,11 @@ class Stream {
 
         for (let i = 0; i < this.chars.length; i++) {
             // "glitching" characters
-            if (Math.random() < GLITCH_RATE && this.chars[i] !== " ") {
+            if (
+                Math.random() < GLITCH_RATE &&
+                this.chars[i] !== " " &&
+                !this.message
+            ) {
                 this.chars[i] =
                     CHARSET[Math.floor(Math.random() * CHARSET.length)];
             }
@@ -78,18 +102,13 @@ class Stream {
             let x = this.x + CHAR_WIDTH / 2;
             let y = i * CHAR_HEIGHT - CHAR_HEIGHT / 2;
 
-            // hide tail of stream
-            if (this.chars[i] === " ") {
-                ctx.fillStyle = "#1e1e2e";
-                ctx.fillRect(this.x, i * CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT);
-
-                continue;
-            }
+            // don't render tail of stream
+            if (this.chars[i] === " ") continue;
 
             // circle around mouse for golden code
             const isGold =
                 (x - mouse.x) * (x - mouse.x) + (y - mouse.y) * (y - mouse.y) <
-                mouse.acc * GOLD;
+                    mouse.acc * GOLD || this.message;
 
             ctx.fillStyle = isGold
                 ? COLOURS.peach.hex
@@ -122,10 +141,16 @@ const tick = () => {
         mouse.acc *= FADE;
 
         if (Math.random() < SPAWN_RATE) {
+            const message =
+                Math.random() < MESSAGE_RATE
+                    ? MESSAGES[Math.floor(Math.random() * MESSAGES.length)]
+                    : undefined;
+
             streams.push(
                 new Stream(
                     Math.floor((Math.random() * canvas.width) / CHAR_WIDTH) *
-                        CHAR_WIDTH
+                        CHAR_WIDTH,
+                    message
                 )
             );
         }
