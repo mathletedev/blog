@@ -1,4 +1,4 @@
-import { CHART_COLORS, createChart } from "./chart";
+import { CHART_COLOURS, createChart } from "./chart";
 
 const skills = document.getElementById("skills") as HTMLCanvasElement;
 const nav = document.getElementById("fade")!
@@ -33,23 +33,23 @@ const CHARTS: Record<string, number>[] = [
 ];
 
 let chart = createChart(skills, CHARTS[0]);
-(nav[0].children[0] as HTMLElement).style.backgroundColor = "#45475a";
+(nav[0].children[0] as HTMLElement).classList.add("current");
 let current = 0;
 
-for (let i = 0; i < nav.length; i++)
+for (let i = 0; i < nav.length; i++) {
     (nav[i].children[0] as HTMLButtonElement).onclick = () => {
-        (nav[current].children[0] as HTMLElement).style.backgroundColor =
-            "#313244";
+        (nav[current].children[0] as HTMLElement).classList.remove("current");
 
         chart.data.labels = Object.keys(CHARTS[i]);
         chart.data.datasets = [
             {
                 data: Object.values(CHARTS[i]),
-                backgroundColor: CHART_COLORS
+                backgroundColor: CHART_COLOURS
             }
         ];
         chart.update();
 
-        (nav[i].children[0] as HTMLElement).style.backgroundColor = "#45475a";
+        (nav[i].children[0] as HTMLElement).classList.add("current");
         current = i;
     };
+}

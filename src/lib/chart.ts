@@ -1,9 +1,10 @@
 import Chart from "chart.js/auto";
+import { COLOURS } from "./colours";
 
-Chart.defaults.backgroundColor = "#1e1e2e";
-Chart.defaults.borderColor = "#313244";
-Chart.defaults.color = "#a6adc8";
-Chart.defaults.elements.arc.borderColor = "#cdd6f4";
+Chart.defaults.backgroundColor = COLOURS.base.hex;
+Chart.defaults.borderColor = COLOURS.surface0.hex;
+Chart.defaults.color = COLOURS.subtext0.hex;
+Chart.defaults.elements.arc.borderColor = COLOURS.text.hex;
 Chart.defaults.elements.point.radius = 0;
 Chart.defaults.elements.point.hitRadius = 8;
 Chart.defaults.font.family = "PT Sans";
@@ -11,7 +12,7 @@ Chart.defaults.plugins.legend.display = false;
 Chart.defaults.scale.ticks.display = false;
 Chart.defaults.scale.min = 4;
 
-export const CHART_COLORS = [
+export const CHART_COLOURS = [
     "rgb(243, 139, 168, 0.5)",
     "rgb(250, 179, 135, 0.5)",
     "rgb(249, 226, 175, 0.5)",
@@ -31,7 +32,7 @@ export const createChart = (
                 r: {
                     pointLabels: {
                         centerPointLabels: true,
-                        color: "#bac2de",
+                        color: COLOURS.subtext1.hex,
                         display: true,
                         font: {
                             family: "PT Sans",
@@ -46,7 +47,7 @@ export const createChart = (
             datasets: [
                 {
                     data: Object.values(data),
-                    backgroundColor: CHART_COLORS
+                    backgroundColor: CHART_COLOURS
                 }
             ]
         }
