@@ -1,5 +1,7 @@
+import { COLOURS } from "./colours";
+
 const CHARSET =
-    "ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890";
+    'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890:."=*+-<>';
 const CHAR_HEIGHT = window.innerWidth < 768 ? 16 : 24;
 const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
@@ -7,6 +9,9 @@ const GLITCH_RATE = 0.2;
 const ERROR_RATE = 0.05;
 const FADE = 0.9;
 const GOLD = 0.5;
+const OPACITY = 0.4;
+const ERROR_OPACITY = 0.8;
+const GOLD_OPACITY = 1;
 
 const canvas = document.querySelector("canvas")!;
 const ctx = canvas.getContext("2d")!;
@@ -38,7 +43,6 @@ class Stream {
     private length: number;
     private speed: number;
     private x: number;
-    private glitches: number[] = [];
     private error: boolean;
 
     public constructor(x: number) {
@@ -46,10 +50,9 @@ class Stream {
         this.speed = Math.floor(Math.random() * 2) + 1;
         this.x = x;
 
-        for (let i = 0; i < canvas.height / CHAR_HEIGHT; i++)
-            if (Math.random() < GLITCH_RATE) this.glitches.push(i);
-
         this.error = Math.random() < ERROR_RATE;
+
+        ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
     }
 
     public update() {
@@ -57,42 +60,54 @@ class Stream {
             this.chars.push(
                 CHARSET[Math.floor(Math.random() * CHARSET.length)]
             );
-            if (this.chars.length >= this.length)
+            if (this.chars.length >= this.length) {
                 this.chars[this.chars.length - this.length] = " ";
+            }
         }
 
         if (this.chars.length - this.length > canvas.height / CHAR_HEIGHT)
             return true;
 
-        ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
-
         for (let i = 0; i < this.chars.length; i++) {
-            if (this.glitches.includes(i) && this.chars[i] !== " ")
+            // "glitching" characters
+            if (Math.random() < GLITCH_RATE && this.chars[i] !== " ") {
                 this.chars[i] =
                     CHARSET[Math.floor(Math.random() * CHARSET.length)];
+            }
 
             let x = this.x + CHAR_WIDTH / 2;
             let y = i * CHAR_HEIGHT - CHAR_HEIGHT / 2;
 
-            if (this.chars[i] !== " ") {
+            // hide tail of stream
+            if (this.chars[i] === " ") {
                 ctx.fillStyle = "#1e1e2e";
                 ctx.fillRect(this.x, i * CHAR_HEIGHT, CHAR_WIDTH, CHAR_HEIGHT);
+
+                continue;
             }
 
-            ctx.fillStyle =
+            // circle around mouse for golden code
+            const isGold =
                 (x - mouse.x) * (x - mouse.x) + (y - mouse.y) * (y - mouse.y) <
-                mouse.acc * GOLD
-                    ? "#fab387"
-                    : this.error
-                      ? i === this.chars.length - 1
-                          ? "#f38ba8"
-                          : "#eba0ac"
-                      : i === this.chars.length - 1
-                        ? "#6c7086"
-                        : "#313244";
-            ctx.globalAlpha = 0.4;
+                mouse.acc * GOLD;
+
+            ctx.fillStyle = isGold
+                ? COLOURS.peach.hex
+                : this.error
+                  ? i === this.chars.length - 1
+                      ? COLOURS.red.hex
+                      : COLOURS.maroon.hex
+                  : i === this.chars.length - 1
+                    ? COLOURS.text.hex
+                    : COLOURS.green.hex;
+            ctx.globalAlpha =
+                (isGold ? GOLD_OPACITY : this.error ? ERROR_OPACITY : OPACITY) *
+                // fade out characters at end of stream
+                ((i - (this.chars.length - this.length)) / this.length);
             ctx.fillText(this.chars[i], this.x, i * CHAR_HEIGHT);
         }
+
+        return false;
     }
 }
 
@@ -106,13 +121,14 @@ const tick = () => {
     if (Date.now() > lastTick + DELAY) {
         mouse.acc *= FADE;
 
-        if (Math.random() < SPAWN_RATE)
+        if (Math.random() < SPAWN_RATE) {
             streams.push(
                 new Stream(
                     Math.floor((Math.random() * canvas.width) / CHAR_WIDTH) *
                         CHAR_WIDTH
                 )
             );
+        }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 

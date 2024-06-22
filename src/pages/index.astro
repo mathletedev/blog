@@ -5,6 +5,7 @@ import TabBar from "../components/TabBar.astro";
 import TypistLoop from "../components/TypistLoop";
 import Vignette from "../components/Vignette.astro";
 import Base from "../layouts/Base.astro";
+import { COLOURS } from "../lib/colours";
 ---
 
 <Base>
@@ -26,7 +27,7 @@ import Base from "../layouts/Base.astro";
                 "Student",
                 "Mathlete",
                 "Developer",
-                "Scientist",
+                "Software Engineer",
                 "Teacher",
                 "Violinist",
                 "Tennis Player",
@@ -35,6 +36,16 @@ import Base from "../layouts/Base.astro";
         />
     </div>
     <Sidebar />
+    <a
+        class="fixed bottom-4 right-4 desktop"
+        href="https://github.com/mathletedev/mathletedev.github.io"
+        target="_blank"
+    >
+        <img
+            class="w-8 h-8 m-auto"
+            src={`https://cdn.simpleicons.org/github/${COLOURS.overlay0.hex.substring(1)}`}
+        />
+    </a>
 </Base>
 
 <script>

@@ -9,6 +9,7 @@
   "dependencies": {
     "@astrojs/prefetch": "^0.2.1",
     "@astrojs/tailwind": "^3.1.1",
+    "@catppuccin/palette": "^1.2.0",
     "chart.js": "^4.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
