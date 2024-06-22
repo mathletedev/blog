@@ -5,8 +5,9 @@ const CHARSET =
 const CHAR_HEIGHT = window.innerWidth < 768 ? 16 : 24;
 const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
-const GLITCH_RATE = 0.2;
+const GLITCH_RATE = 0.1;
 const ERROR_RATE = 0.05;
+const ERROR_GLITCH_RATE = 0.6;
 const MESSAGE_RATE = 0.02;
 const FADE = 0.9;
 const GOLD = 0.5;
@@ -91,7 +92,8 @@ class Stream {
         for (let i = 0; i < this.chars.length; i++) {
             // "glitching" characters
             if (
-                Math.random() < GLITCH_RATE &&
+                Math.random() <
+                    (this.error ? ERROR_GLITCH_RATE : GLITCH_RATE) &&
                 this.chars[i] !== " " &&
                 !this.message
             ) {
