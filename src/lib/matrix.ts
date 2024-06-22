@@ -111,14 +111,17 @@ class Stream {
             const isGold =
                 (x - mouse.x) * (x - mouse.x) + (y - mouse.y) * (y - mouse.y) <
                     mouse.acc * GOLD || this.message;
+            const isLast = i === this.chars.length - 1;
 
             ctx.fillStyle = isGold
-                ? COLOURS.peach.hex
+                ? isLast
+                    ? COLOURS.text.hex
+                    : COLOURS.peach.hex
                 : this.error
-                  ? i === this.chars.length - 1
+                  ? isLast
                       ? COLOURS.red.hex
                       : COLOURS.maroon.hex
-                  : i === this.chars.length - 1
+                  : isLast
                     ? COLOURS.text.hex
                     : COLOURS.green.hex;
             ctx.globalAlpha =
