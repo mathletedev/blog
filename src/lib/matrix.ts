@@ -1,7 +1,8 @@
 import { COLOURS } from "./colours";
 
+// characters used in Matrix font, will be converted to katakana
 const CHARSET =
-    'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890:."=*+-<>';
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
 const CHAR_HEIGHT = window.innerWidth < 768 ? 16 : 24;
 const CHAR_WIDTH = 0.75 * CHAR_HEIGHT;
 const DELAY = 50;
@@ -15,7 +16,7 @@ const OPACITY = 0.4;
 const ERROR_OPACITY = 0.8;
 const GOLD_OPACITY = 1;
 const MESSAGES = [
-    "HELLO,WORLD!",
+    "HELLOWORLD",
     "NEALWANG",
     "THEMATRIX",
     "3.1415926535",
@@ -28,6 +29,8 @@ const ctx = canvas.getContext("2d")!;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
+ctx.font = `${CHAR_HEIGHT * 1.25}px Matrix Code NFI`;
 
 let SPAWN_RATE = canvas.width / 1920;
 
@@ -64,8 +67,6 @@ class Stream {
         this.error = Math.random() < ERROR_RATE;
 
         this.message = message;
-
-        ctx.font = `${CHAR_HEIGHT}px Kosugi Maru`;
     }
 
     public update() {

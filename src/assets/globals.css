@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Matrix Code NFI";
+    src: url("/fonts/matrix code nfi.otf") format("opentype");
+}
+
 @layer base {
     body {
         height: 100dvh;
