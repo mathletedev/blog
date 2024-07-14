@@ -3,3 +3,5 @@ trailingComma: none
 arrowParens: avoid
 plugins:
     - prettier-plugin-astro
+    - prettier-plugin-tailwindcss
+    - "@ianvs/prettier-plugin-sort-imports"

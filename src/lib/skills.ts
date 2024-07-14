@@ -1,12 +1,11 @@
 import { CHART_COLOURS, createChart } from "./chart";
 
 const skills = document.getElementById("skills") as HTMLCanvasElement;
-const nav = document.getElementById("fade")!
-    .children as HTMLCollectionOf<HTMLElement>;
+const nav = document.getElementById("fade")!.children as HTMLCollectionOf;
 
 skills.width = skills.height = Math.min(500, window.innerWidth - 32);
 
-const CHARTS: Record<string, number>[] = [
+const CHARTS: Record[] = [
     {
         TypeScript: 10,
         Rust: 9,

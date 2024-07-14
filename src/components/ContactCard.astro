@@ -10,16 +10,16 @@ const { icon, title, href, colour } = Astro.props as Props;
 ---
 
 <a class="opacity-0 transition-opacity duration-1000" {href} target="_blank">
-    <div class="w-20 md:w-32 h-20 md:h-32" id="flip">
-        <div class="w-full h-full text-center" id="inner">
+    <div class="h-20 w-20 md:h-32 md:w-32" id="flip">
+        <div class="h-full w-full text-center" id="inner">
             <div class="flex rounded-lg bg-surface0 bg-opacity-40" id="front">
                 <img
-                    class="w-1/2 h-1/2 m-auto"
+                    class="m-auto h-1/2 w-1/2"
                     src={`https://cdn.simpleicons.org/${icon}/${colour}`}
                 />
             </div>
             <div class="flex rounded-lg bg-surface0 bg-opacity-40" id="back">
-                <h2 class="m-auto text-xl neon" style={{ color: `#${colour}` }}>
+                <h2 class="neon m-auto text-xl" style={{ color: `#${colour}` }}>
                     {title}
                 </h2>
             </div>

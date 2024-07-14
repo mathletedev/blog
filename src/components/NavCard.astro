@@ -9,11 +9,11 @@ const { title, href, colour } = Astro.props as Props;
 ---
 
 <a class="opacity-0 transition-opacity duration-1000" {href}>
-    <div class="w-32 h-16" id="flip">
-        <div class="w-full h-full text-center" id="inner">
+    <div class="h-16 w-32" id="flip">
+        <div class="h-full w-full text-center" id="inner">
             <div class="flex rounded-lg bg-base bg-opacity-40" id="front">
                 <h2
-                    class="m-auto text-2xl italic neon"
+                    class="neon m-auto text-2xl italic"
                     style={{ color: colour }}
                 >
                     {title}
@@ -21,7 +21,7 @@ const { title, href, colour } = Astro.props as Props;
             </div>
             <div class="flex rounded-lg bg-surface0 bg-opacity-40" id="back">
                 <h2
-                    class="m-auto text-2xl italic neon"
+                    class="neon m-auto text-2xl italic"
                     style={{ color: colour }}
                 >
                     {title}

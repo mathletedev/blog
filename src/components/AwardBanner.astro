@@ -9,12 +9,12 @@ const { title, href, year } = Astro.props as Props;
 ---
 
 <a class="opacity-0 transition-opacity duration-1000" {href} target="_blank">
-    <div class="flex text-sm md:text-xl gap-0.5">
-        <p class="italic text-yellow hover:text-peach transition-colors">
+    <div class="flex gap-0.5 text-sm md:text-xl">
+        <p class="italic text-yellow transition-colors hover:text-peach">
             {title}
         </p>
         <div class="flex-grow"></div>
         <p class="text-surface2">{year}</p>
     </div>
-    <div class="w-full h-0.5 mb-2 md:mb-4 bg-surface0"></div>
+    <div class="mb-2 h-0.5 w-full bg-surface0 md:mb-4"></div>
 </a>

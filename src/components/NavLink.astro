@@ -10,7 +10,7 @@ const { href, title, colour } = Astro.props as Props;
 const isActive = Astro.url.pathname.replace(/\/+$/, "") === href;
 ---
 
-<a class="md:text-lg font-bold text-surface1" {href}>
+<a class="font-bold text-surface1 md:text-lg" {href}>
     <span class={isActive ? "select neon" : ""}>{"> "}</span><span
         class="neon"
         style={{ color: colour }}>{title ?? href}</span

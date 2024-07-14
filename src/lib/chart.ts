@@ -21,10 +21,7 @@ export const CHART_COLOURS = [
     "rgb(180, 190, 254, 0.5)"
 ];
 
-export const createChart = (
-    target: HTMLCanvasElement,
-    data: Record<string, number>
-) =>
+export const createChart = (target: HTMLCanvasElement, data: Record) =>
     new Chart(target, {
         type: "polarArea",
         options: {

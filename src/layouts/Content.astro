@@ -15,10 +15,10 @@ const { title, prev, next } = Astro.props as Props;
 <>
     <TabBar show />
     <Vignette />
-    <div class="flex h-dynamic">
-        <div class="my-auto w-screen flex flex-col">
+    <div class="h-dynamic flex">
+        <div class="my-auto flex w-screen flex-col">
             <h1
-                class="mx-auto -mt-12 md:mt-0 w-min text-center text-4xl md:text-6xl italic select-none animate-bounce neon"
+                class="neon mx-auto -mt-12 w-min animate-bounce select-none text-center text-4xl italic md:mt-0 md:text-6xl"
             >
                 {title}
             </h1>
