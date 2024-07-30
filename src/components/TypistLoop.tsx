@@ -11,7 +11,7 @@ const shuffle = (array: string[]) =>
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
 
-const TypistLoop: FC = ({ texts }) => (
+const TypistLoop: FC<Props> = ({ texts }) => (
     <div className="h-24">
         <Typist typingDelay={100} loop>
             {shuffle(texts).map(text => (
