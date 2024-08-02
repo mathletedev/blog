@@ -1,0 +1,45 @@
+---
+import Vignette from "../components/Vignette.astro";
+import Base from "./Base.astro";
+
+export interface Props {
+    frontmatter: {
+        title: string;
+        date: string;
+        minutesRead: {
+            text: string;
+        };
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title}>
+    <Vignette />
+    <nav class="flex h-12 items-center bg-surface0 px-8">
+        <h1 class="neon text-2xl">
+            {"> "}<span class="text-blue"
+                ><a href="/">Neal Wang</a>'s <a href="/blog">Blog</a></span
+            >{" <"}
+        </h1>
+    </nav>
+    <div class="flex">
+        <div class="m-auto w-full px-8 pt-12 sm:px-16 lg:w-1/2 lg:px-0">
+            <header class="mb-8 border-b border-surface0 pb-8">
+                <h1 class="neon mb-2 text-4xl italic text-lavender">
+                    {frontmatter.title}
+                </h1>
+                <h2 class="text-mauve">
+                    {frontmatter.date} • {frontmatter.minutesRead.text}
+                </h2>
+            </header>
+            <div
+                id="mdx-content"
+                class="mb-16 font-['Patrick_Hand'] text-xl sm:mb-24"
+            >
+                <slot />
+            </div>
+        </div>
+    </div>
+</Base>

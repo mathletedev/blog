@@ -18,6 +18,11 @@
         @apply text-blue;
     }
 
+    code {
+        font-family: "Cascadia Code";
+        @apply text-base;
+    }
+
     .h-dynamic {
         height: 100dvh;
     }
@@ -137,6 +142,39 @@
     @media screen and (max-width: 768px) {
         .mobile {
             visibility: visible;
+        }
+    }
+
+    #mdx-content {
+        p {
+            @apply mb-4;
+        }
+        h1 {
+            @apply mb-2 text-3xl font-bold;
+        }
+        h2 {
+            @apply mb-2 text-2xl font-bold;
+        }
+        a {
+            @apply underline;
+        }
+        em {
+            @apply text-mauve;
+        }
+        strong {
+            @apply text-red;
+        }
+        ul {
+            @apply mb-4 ml-4 list-disc;
+        }
+        blockquote {
+            @apply mb-6 mt-2;
+            p {
+                @apply mb-0 border-l-4 border-base pl-4;
+            }
+        }
+        hr {
+            @apply mb-4 border-base;
         }
     }
 }
