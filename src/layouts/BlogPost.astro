@@ -17,17 +17,17 @@ const { frontmatter } = Astro.props;
 
 <Base title={frontmatter.title}>
     <Vignette />
-    <nav class="flex h-12 items-center bg-surface0 px-8">
-        <h1 class="neon text-2xl">
+    <nav class="flex h-10 items-center bg-surface0 px-8 sm:h-12">
+        <h1 class="neon mx-auto text-xl sm:mx-0 sm:text-2xl">
             {"> "}<span class="text-blue"
                 ><a href="/">Neal Wang</a>'s <a href="/blog">Blog</a></span
             >{" <"}
         </h1>
     </nav>
     <div class="flex">
-        <div class="m-auto w-full px-8 pt-12 sm:px-16 lg:w-1/2 lg:px-0">
-            <header class="mb-8 border-b border-surface0 pb-8">
-                <h1 class="neon mb-2 text-4xl italic text-lavender">
+        <div class="m-auto mt-8 w-full px-4 sm:mt-12 sm:px-16 lg:w-1/2 lg:px-0">
+            <header class="mb-4 border-b border-surface0 pb-4 sm:mb-8 sm:pb-8">
+                <h1 class="neon mb-2 text-3xl italic text-lavender sm:text-4xl">
                     {frontmatter.title}
                 </h1>
                 <h2 class="text-mauve">
@@ -36,10 +36,15 @@ const { frontmatter } = Astro.props;
             </header>
             <div
                 id="mdx-content"
-                class="mb-16 font-['Patrick_Hand'] text-xl sm:mb-24"
+                class="mb-8 border-b border-surface0 pb-12 font-['Patrick_Hand'] text-lg md:text-xl"
             >
                 <slot />
             </div>
+            <footer class="flex w-full">
+                <p class="mx-auto mb-8 lg:mb-16">
+                    Neal Wang • {frontmatter.title} • {frontmatter.date}
+                </p>
+            </footer>
         </div>
     </div>
 </Base>

@@ -20,7 +20,7 @@ const posts = await Astro.glob<Frontmatter>("./blog/*.mdx");
                     )
                     .map(post => (
                         <a
-                            class="mb-4 flex w-[80vw] rounded-lg border-2 border-base p-4 text-xl font-bold text-lavender transition-colors hover:border-lavender md:w-[50vw] md:text-2xl"
+                            class="mb-4 flex w-[80vw] rounded-lg border-2 border-base p-4 font-bold text-lavender transition-colors hover:border-lavender sm:text-xl md:w-[50vw] lg:text-2xl"
                             href={post.url}
                         >
                             {post.frontmatter.title}
