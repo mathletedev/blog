@@ -1,3 +1,4 @@
+import mdx from "@astrojs/mdx";
 import prefetch from "@astrojs/prefetch";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -15,6 +16,7 @@ export default defineConfig({
             }
         }),
         prefetch(),
-        sitemap()
+        sitemap(),
+        mdx()
     ]
 });
