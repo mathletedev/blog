@@ -1,0 +1,127 @@
+---
+layout: ../../layouts/BlogPost.astro
+title: "Rust's Result Enum: The GOAT of Error Handling"
+date: "2024-08-02"
+---
+
+When I first started learning Rust, one of the things that bugged me was the `Result` enum.
+I found my codebase riddled with chains of `unwrap()`s and `expect()`s,
+while `rustfmt` desperately tried to parse the madness.
+Everything looked so verbose; why couldn't I just let functions error out?
+
+At the time, I was an avid TypeScript programmer, so I was stuck in the land of `try...catch`.
+I wasn't a fan of error handling. My thought process was, "If I code everything right, _there will be no errors_".
+If I was unsure about something, I would just throw a `try` block around the adjacent 10 lines and call it a day.
+
+> Error handling, am I right?
+
+As I started shifting my focus towards full-stack development, I began to realise the holes in this ideology.
+When you have a state for every entity that gets passed between client and server, it gets real messy.
+Let's say you have a method on your server, `getMyPosts()`. Simple enough.
+Server returns a list of `Post`s, client renders said posts, user is happy.
+
+However, what if the user isn't logged in? We can't return the user's posts if he/she isn't authenticated.
+We have 3 basic ways of handling this:
+
+1.  Return an empty list. Problem is, how do we differentiate between _user is unauthenticated_ vs _user has no posts_?
+2.  Return `null` or `undefined`.
+    This is better, but now we're uncertain between _user is unauthenticated_ vs _error retrieving posts_
+    (assuming we're not returning an HTTP error code).
+3.  Return an additional field, `error?: string`, containing a description for the error.
+    This causes a lot of mental gymnastics, as we now need to consider this possible error field with every request,
+    not to mention the chore of making the strings consistent throughout the entire codebase.
+
+Is there no better way of solving this issue?
+
+# The compiler assignment
+
+While I was learning the ropes of Rust,
+I was also taking a C++ data structures class at my local university (shoutout Andy O'Fallon the 🐐).
+Towards the end of the year, we had an assignment for writing a tiny compiler for the
+[Simple BASIC](https://www.cs.uaf.edu/~cs202/deitel4e/ab2eocexample.html#:~:text=The%20Simpletron%20runs%20programs%20written%20in%20the%20only,in%20calculations%20or%20examines%20it%20in%20various%20ways.)
+language, along with a simulator for Simple Machine Language, known as the [Simpletron](https://web.cs.wpi.edu/~jburge/courses/c01/cs2011/lectures/lecture5.pdf).
+I'd heard many people praise Rust's string handling, so I decided to give it a whirl with this assignment.
+
+> If anyone is interested, the project code is [here](https://github.com/mathletedev/simple).
+
+To say I was amazed by Rust's error handling is an understatement.
+I came into this project trying to escape from C++ strings,
+but ended up falling in love with functional programming and errors as values.
+When writing a compiler, you have to keep track of many moving pieces.
+Think of the error states possible: Syntax errors, mathematical errors (dividing by 0), parametric errors, etc.
+
+Now imagine keeping track of these states with the aforementioned `error?`. That's gonna be a lot of strings.
+
+# Rust's Result enum
+
+With Rust, we get a `Result` enum out-of-the-`Box`:
+
+```rs
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+This looks really simple, but it's also really cool.
+
+Essentially, a `Result` can contain either an `Ok` value **or** an `Err` value, but not **both**.
+To get the `Ok` value, you have to extract it intentionally. What do I mean by this?
+
+Let's say I have a result variable. I cannot simply extract the `Ok` value:
+
+```rs
+let res: Result<i32, String> = Ok(100);
+
+if res == 200 {} // this won't compile
+```
+
+Instead, I must extract it with _intent_, like so:
+
+```rs
+// just extract ok value
+if let Ok(v) = res {
+    if v == 200 {
+        println!("Ok: {v}");
+    }
+}
+
+// also handle error
+match res {
+    Ok(v) => println!("Ok: {v}"),
+    Err(e) => println!("Error: {e}"),
+};
+
+// or simply discarding the error (aka trust me bro)
+let v = res.unwrap();
+
+// even with a question mark?
+let v = res?;
+```
+
+You'll see this littered throughout my Simple codebase, and it made my life so much easier during this assignment.
+
+```rs
+let file = match File::open(&in_path) {
+    Ok(file) => file,
+    Err(_) => {
+        println!(
+            "*** Failed to open file {} for reading ***",
+            &in_path.to_string_lossy()
+        );
+        return;
+    }
+};
+```
+
+Intent is important here, because it forces the programmer to consider the _possibility_ of an error.
+Although this can be a little tedious,
+it is an excellent trade-off for the massively improved structure and organisation of a codebase.
+
+# Conclusion
+
+After the compiler assignment, I have come to understand how amazing `unwrap()` and `match` are.
+Errors as values reduce confusion, allowing one to "trace" an error as it _bubbles up_ through function calls,
+rather than let it blindly `throw` into the void.
+When a language natively implements a feature like the `Result` enum,
+it becomes a common standard that is shared across all codebases, improving code quality and readability everywhere.
