@@ -8,8 +8,8 @@ export interface Props {
 const { show } = Astro.props as Props;
 ---
 
-<div
-    class={`fixed bottom-0 w-screen flex pb-1 md:h-8 flex-wrap justify-center content-center gap-x-4 md:gap-x-8 gap-y-1 bg-base ${
+<nav
+    class={`fixed bottom-0 w-screen flex pb-1 flex-wrap justify-center content-center gap-x-4 md:gap-x-8 gap-y-1 bg-base ${
         !show && "mobile"
     }`}
 >
@@ -20,4 +20,4 @@ const { show } = Astro.props as Props;
     <NavLink href="/work" colour="#a6e3a1" />
     <NavLink href="/blog" colour="#89b4fa" />
     <NavLink href="/contact" colour="#b4befe" />
-</div>
+</nav>
