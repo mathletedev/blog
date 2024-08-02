@@ -1,4 +1,5 @@
 ---
+import "../assets/mdx-content.css";
 import Vignette from "../components/Vignette.astro";
 import Base from "./Base.astro";
 
@@ -42,7 +43,9 @@ const { frontmatter } = Astro.props;
             </div>
             <footer class="flex w-full">
                 <p class="mx-auto mb-8 lg:mb-16">
-                    Neal Wang • {frontmatter.title} • {frontmatter.date}
+                    Neal Wang • <em>{frontmatter.title}</em> • {
+                        frontmatter.date
+                    }
                 </p>
             </footer>
         </div>

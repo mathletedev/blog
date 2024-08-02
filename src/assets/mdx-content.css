@@ -1,0 +1,60 @@
+#mdx-content {
+    @apply text-justify;
+
+    p {
+        @apply mb-2.5;
+    }
+
+    h1 {
+        @apply mb-1.5 mt-3.5 text-3xl font-bold;
+    }
+
+    h2 {
+        @apply mb-1.5 mt-2.5 text-2xl font-bold;
+    }
+
+    a {
+        @apply underline;
+    }
+
+    em {
+        @apply text-green;
+    }
+
+    strong {
+        @apply text-red;
+    }
+
+    code {
+        @apply rounded bg-base px-1.5 py-0.5 text-mauve;
+    }
+
+    pre {
+        @apply mb-2.5 rounded-lg px-2.5 py-1.5 leading-3;
+        code {
+            @apply p-0;
+        }
+    }
+
+    ul {
+        @apply mb-2.5 ml-4 list-disc;
+    }
+
+    ol {
+        @apply mb-2.5 ml-4 list-decimal;
+        ::marker {
+            @apply text-sapphire;
+        }
+    }
+
+    blockquote {
+        @apply mb-3.5 mt-1.5;
+        p {
+            @apply mb-0 border-l-4 border-base pl-4;
+        }
+    }
+
+    hr {
+        @apply mb-2.5 border-base;
+    }
+}
