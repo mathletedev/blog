@@ -1,14 +1,36 @@
 ---
 import Base from "../layouts/Base.astro";
 import Content from "../layouts/Content.astro";
+
+interface Frontmatter {
+    title: string;
+    date: string;
+}
+
+const posts = await Astro.glob<Frontmatter>("./blog/*.mdx");
 ---
 
 <Base title="Blog">
     <Content title="Blog" prev="/work" next="/contact">
         <div class="mx-auto mt-8">
-            <h1 class="animate-pulse font-serif text-2xl italic text-yellow">
-                Work in Progress...
-            </h1>
+            {
+                posts
+                    .sort((a, b) =>
+                        a.frontmatter.date < b.frontmatter.date ? 1 : -1
+                    )
+                    .map(post => (
+                        <a
+                            class="mb-4 flex w-[80vw] rounded-lg border-2 border-base p-4 text-xl font-bold text-lavender transition-colors hover:border-lavender md:w-[50vw] md:text-2xl"
+                            href={post.url}
+                        >
+                            {post.frontmatter.title}
+                            <div class="flex-grow" />
+                            <span class="text-overlay0">
+                                {post.frontmatter.date}
+                            </span>
+                        </a>
+                    ))
+            }
         </div>
     </Content>
 </Base>
