@@ -23,7 +23,7 @@ const posts = await Astro.glob<Frontmatter>("./blog/*.mdx");
                             class="mb-4 flex w-[80vw] rounded-lg border-2 border-base p-4 font-bold text-lavender transition-colors hover:border-lavender sm:text-xl md:w-[50vw] lg:text-2xl"
                             href={post.url}
                         >
-                            {post.frontmatter.title}
+                            <span class="w-2/3">{post.frontmatter.title}</span>
                             <div class="flex-grow" />
                             <span class="text-overlay0">
                                 {post.frontmatter.date}

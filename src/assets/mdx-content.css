@@ -1,6 +1,4 @@
 #mdx-content {
-    @apply text-justify;
-
     p {
         @apply mb-2.5;
     }
