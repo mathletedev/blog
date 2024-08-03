@@ -12,7 +12,7 @@ const { icon, title, href, colour } = Astro.props as Props;
 <a class="opacity-0 transition-opacity duration-1000" {href} target="_blank">
     <div class="h-20 w-20 md:h-32 md:w-32" id="flip">
         <div class="h-full w-full text-center" id="inner">
-            <div class="flex rounded-lg bg-surface0 bg-opacity-40" id="front">
+            <div class="flex rounded-lg bg-base bg-opacity-40" id="front">
                 <img
                     class="m-auto h-1/2 w-1/2"
                     src={`https://cdn.simpleicons.org/${icon}/${colour}`}
@@ -38,7 +38,7 @@ const { icon, title, href, colour } = Astro.props as Props;
     }
 
     #flip:hover #inner {
-        transform: rotateY(180deg);
+        transform: rotate3d(1, 1, 0, 180deg);
     }
 
     #front,
@@ -49,11 +49,10 @@ const { icon, title, href, colour } = Astro.props as Props;
         backface-visibility: hidden;
     }
 
-    #front {
-        transform: rotateY(360deg);
-    }
-
     #back {
         transform: rotateY(180deg);
+        h2 {
+            transform: rotateZ(45deg);
+        }
     }
 </style>
