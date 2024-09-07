@@ -12,7 +12,7 @@ const posts = await Astro.glob<Frontmatter>("./blog/*.mdx");
 
 <Base title="Blog">
     <Content title="Blog" prev="/work" next="/contact">
-        <div class="mx-auto mt-8">
+        <div class="mx-auto mt-8 md:mt-16">
             {
                 posts
                     .sort((a, b) =>
