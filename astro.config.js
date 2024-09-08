@@ -13,17 +13,17 @@ export default defineConfig({
         tailwind({
             config: {
                 path: "tailwind.config.js",
-                applyBaseStyles: false
-            }
+                applyBaseStyles: false,
+            },
         }),
         prefetch(),
         sitemap(),
-        mdx()
+        mdx(),
     ],
     markdown: {
         remarkPlugins: [remarkReadingTime],
         shikiConfig: {
-            theme: "catppuccin-mocha"
-        }
-    }
+            theme: "catppuccin-mocha",
+        },
+    },
 });

@@ -18,7 +18,7 @@ export const CHART_COLOURS = [
     "rgb(249, 226, 175, 0.5)",
     "rgb(166, 227, 161, 0.5)",
     "rgb(137, 180, 250, 0.5)",
-    "rgb(180, 190, 254, 0.5)"
+    "rgb(180, 190, 254, 0.5)",
 ];
 
 export const createChart = (target: HTMLCanvasElement, data: Record) =>
@@ -33,19 +33,19 @@ export const createChart = (target: HTMLCanvasElement, data: Record) =>
                         display: true,
                         font: {
                             family: "PT Sans",
-                            size: 18
-                        }
-                    }
-                }
-            }
+                            size: 18,
+                        },
+                    },
+                },
+            },
         },
         data: {
             labels: Object.keys(data),
             datasets: [
                 {
                     data: Object.values(data),
-                    backgroundColor: CHART_COLOURS
-                }
-            ]
-        }
+                    backgroundColor: CHART_COLOURS,
+                },
+            ],
+        },
     });

@@ -4,13 +4,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: "Victor Mono"
-            }
-        }
+                sans: "Victor Mono",
+            },
+        },
     },
     plugins: [
         require("@catppuccin/tailwindcss")({
-            defaultFlavour: "mocha"
-        })
-    ]
+            defaultFlavour: "mocha",
+        }),
+    ],
 };

@@ -21,7 +21,7 @@ const MESSAGES = [
     "THEMATRIX",
     "3.1415926535",
     "6.2831853071",
-    "2.7182818284"
+    "2.7182818284",
 ];
 
 const canvas = document.querySelector("canvas")!;
@@ -45,7 +45,7 @@ let frame = 0;
 
 let mouse = { x: -1000, y: -1000, acc: 0 };
 
-document.onmousemove = e => {
+document.onmousemove = (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
     mouse.acc += e.movementX * e.movementX + e.movementY * e.movementY;
@@ -73,12 +73,12 @@ class Stream {
         if (frame % this.speed === 0) {
             if (!this.message) {
                 this.chars.push(
-                    CHARSET[Math.floor(Math.random() * CHARSET.length)]
+                    CHARSET[Math.floor(Math.random() * CHARSET.length)],
                 );
             } else {
                 // custom message
                 this.chars.push(
-                    this.message[(frame / this.speed) % this.message.length]
+                    this.message[(frame / this.speed) % this.message.length],
                 );
             }
 
@@ -156,8 +156,8 @@ const tick = () => {
                 new Stream(
                     Math.floor((Math.random() * canvas.width) / CHAR_WIDTH) *
                         CHAR_WIDTH,
-                    message
-                )
+                    message,
+                ),
             );
         }
 

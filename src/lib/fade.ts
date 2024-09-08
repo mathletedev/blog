@@ -10,6 +10,6 @@ for (let i = 0; i < container.children.length; i++) {
             child.style.pointerEvents = "unset";
             child.style.opacity = "1";
         },
-        i * 200 + 500
+        i * 200 + 500,
     );
 }

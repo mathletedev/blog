@@ -1,19 +1,18 @@
 import { CHART_COLOURS, createChart } from "./chart";
 
 const skills = document.getElementById("skills") as HTMLCanvasElement;
-const nav = document.getElementById("fade")!
-    .children as HTMLCollectionOf<HTMLElement>;
+const nav = document.getElementById("fade")!.children as HTMLCollectionOf;
 
 skills.width = skills.height = Math.min(500, window.innerWidth - 32);
 
-const CHARTS: Record<string, number>[] = [
+const CHARTS: Record[] = [
     {
         TypeScript: 10,
         Rust: 9,
         "C/C++": 8,
         Go: 7,
         Gleam: 6,
-        Python: 5
+        Python: 5,
     },
     {
         Astro: 10,
@@ -21,15 +20,15 @@ const CHARTS: Record<string, number>[] = [
         Tailwind: 10,
         GraphQL: 9,
         tRPC: 8,
-        PostgreSQL: 9
+        PostgreSQL: 9,
     },
     {
         "GNU/Linux": 10,
         Nix: 9,
         Neovim: 10,
         Git: 9,
-        Jira: 7
-    }
+        Jira: 7,
+    },
 ];
 
 let chart = createChart(skills, CHARTS[0]);
@@ -44,8 +43,8 @@ for (let i = 0; i < nav.length; i++) {
         chart.data.datasets = [
             {
                 data: Object.values(CHARTS[i]),
-                backgroundColor: CHART_COLOURS
-            }
+                backgroundColor: CHART_COLOURS,
+            },
         ];
         chart.update();
 

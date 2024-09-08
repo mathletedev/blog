@@ -8,7 +8,7 @@ export const setup = (text: string) => {
 
 let index = 0;
 
-document.onwheel = e => {
+document.onwheel = (e) => {
     let random = Math.floor(Math.random() * 7) + 1;
 
     if (e.deltaY < 0 && index > 0) {

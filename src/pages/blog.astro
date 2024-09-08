@@ -16,9 +16,9 @@ const posts = await Astro.glob<Frontmatter>("./blog/*.mdx");
             {
                 posts
                     .sort((a, b) =>
-                        a.frontmatter.date < b.frontmatter.date ? 1 : -1
+                        a.frontmatter.date < b.frontmatter.date ? 1 : -1,
                     )
-                    .map(post => (
+                    .map((post) => (
                         <a
                             class="mb-4 flex w-[80vw] rounded-lg border-2 border-base p-4 font-bold text-lavender transition-colors hover:border-lavender sm:text-xl md:w-[50vw] lg:text-2xl"
                             href={post.url}
