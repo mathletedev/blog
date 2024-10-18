@@ -13,15 +13,18 @@ Chart.defaults.scale.ticks.display = false;
 Chart.defaults.scale.min = 4;
 
 export const CHART_COLOURS = [
-    "rgb(243, 139, 168, 0.5)",
-    "rgb(250, 179, 135, 0.5)",
-    "rgb(249, 226, 175, 0.5)",
-    "rgb(166, 227, 161, 0.5)",
-    "rgb(137, 180, 250, 0.5)",
     "rgb(180, 190, 254, 0.5)",
+    "rgb(137, 180, 250, 0.5)",
+    "rgb(166, 227, 161, 0.5)",
+    "rgb(249, 226, 175, 0.5)",
+    "rgb(250, 179, 135, 0.5)",
+    "rgb(243, 139, 168, 0.5)",
 ];
 
-export const createChart = (target: HTMLCanvasElement, data: Record) =>
+export const createChart = (
+    target: HTMLCanvasElement,
+    data: Record<string, number>,
+) =>
     new Chart(target, {
         type: "polarArea",
         options: {

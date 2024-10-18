@@ -1,16 +1,16 @@
 import { CHART_COLOURS, createChart } from "./chart";
 
 const skills = document.getElementById("skills") as HTMLCanvasElement;
-const nav = document.getElementById("fade")!.children as HTMLCollectionOf;
+const nav = document.getElementById("fade")!.children as HTMLCollection;
 
 skills.width = skills.height = Math.min(500, window.innerWidth - 32);
 
-const CHARTS: Record[] = [
+const CHARTS: Record<string, number>[] = [
     {
-        TypeScript: 10,
-        Rust: 9,
-        "C/C++": 8,
-        Go: 7,
+        Rust: 10,
+        Go: 9,
+        TypeScript: 8,
+        "C/C++": 7,
         Gleam: 6,
         Python: 5,
     },
