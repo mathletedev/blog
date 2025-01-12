@@ -11,8 +11,8 @@ const CHARTS: Record<string, number>[] = [
         Go: 9,
         TypeScript: 8,
         "C/C++": 7,
-        Gleam: 6,
-        Python: 5,
+        Haskell: 6,
+        Gleam: 5,
     },
     {
         Astro: 10,
